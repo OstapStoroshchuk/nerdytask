@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script>
+</head>
+<body class="bg-dark">
+<div class="container">
+
+    <form th:action="@{/addTask}" method="post" class="main-form">
+        <div class="form-group">
+            <label for="title" class="label"> Title :</label>
+            <input id="title" name="title" type="text" class="form-input form-control">
+            <label for="description" class="label"> Description: </label>
+            <input id="description" name="description" type="text" class="form-input form-control"><br>
+            <input id="saveTask" type="submit" value="Save task" class="btn btn-success">
+        </div>
+    </form>
+
+
+    <table class="table table-bordered table-stripped table-hover">
+        <caption>Table of tasks</caption>
+        <thead class="bg-light">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Users</th>
+
+            <th>Update</th>
+
+            <th>Share</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody class="tbody">
+        <tr th:each="task : ${tasks}">
+            <td th:text="${task.title}"></td>
+            <td th:text="${task.description}"></td>
+            <td>
+                some users
+            </td>
+            <td>
+                <div>
+                    <a th:href="@{'singleTask/'+${task.id}}">
+                        <button class="btn btn-success">Update</button>
+                    </a>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a th:href="@{'shareTask/'+${task.id}}">
+                        <button class="btn btn-warning"><i class="fas fa-share-alt-square"></i></button>
+                    </a>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <form th:action="@{'deleteTask/'+${task.id}}" method="post">
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
+                        </button>
+                    </form>
+                </div>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <form method="post" th:action="@{/logout}">
+        <button type="submit" class="form-logout btn btn-info">log out!</button>
+    </form>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base href="/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script>
+</head>
+<body>
+<#--[[${task}]]-->
+<div class="container">
+    <form th:action="@{/shareTask}" method="POST" class="main-form">
+        <div class="form-group">
+            <label for="email" class="label" style="color: black">Enter email of your collaborator:</label>
+            <input id="email" type="email" name="email" placeholder="email" class="form-input form-control"><br>
+            <input type="hidden" name="taskId" placeholder="taskId" th:value="${task.id}">
+            <input type="submit" value="Send..." class="btn btn-warning">
+        </div>
+    </form>
+</div>
+</body>
+</html>

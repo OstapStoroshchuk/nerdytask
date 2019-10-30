@@ -1,0 +1,38 @@
+.form-input {
+
+}
+
+.main-form {
+    padding:20px 0;
+    width: 30%;
+    margin: 0 auto;
+}
+
+.form-group {
+
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+
+.container {
+    position: relative;
+}
+
+.form-logout {
+    position: absolute;
+    right: 0;
+    top: 10px;
+
+}
+
+.tbody {
+    color: #fafafa;
+}
+
+.label {
+    color: #fafafa;
+}
+td{
+    text-align: center;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base href="/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script>
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/updateTask}" method="POST" class="main-form">
+        <div class="form-group">
+            <input type="hidden" name="id" placeholder="id" th:value="${task.id}">
+            <input type="text" name="title" placeholder="title" th:value="${task.title}"
+                   class="form-input form-control"><br>
+            <input type="text" name="description" placeholder="description" th:value="${task.description}"
+                   class="form-input form-control"><br>
+            <input type="submit" value="update" class="btn btn-success">
+        </div>
+    </form>
+</div>
+</body>
+</html>
