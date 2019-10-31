@@ -9,5 +9,4 @@ public class NerdytaskApplication {
     public static void main(String[] args) {
         SpringApplication.run(NerdytaskApplication.class, args);
     }
-
 }
